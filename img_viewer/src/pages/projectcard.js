@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import {PlusOutlined} from "@ant-design/icons";
-import { FloatButton } from 'antd';
+import { FloatButton,Modal, Form, Input, InputNumber } from 'antd';
 import LeftMenu from '../components/leftmenu';
 import CoverImg1 from '../assets/imgs/project_cover_img/project1.png';
 import CoverImg2 from '../assets/imgs/project_cover_img/project2img.png';
@@ -10,6 +10,17 @@ import CoverImg5 from '../assets/imgs/project_cover_img/project5img.png';
 
 
 export default function ProjectCard({iframePage,setIframePage,setIframeTitle}) {
+  const [form] = Form.useForm();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
 
     const CardData = [
         {
@@ -168,7 +179,23 @@ export default function ProjectCard({iframePage,setIframePage,setIframeTitle}) {
       );
     })}
     </div>
-    <FloatButton icon={<PlusOutlined/>} tooltip={<div className='text-[11px]'>Add Project</div>} />
+    <FloatButton onClick={showModal} icon={<PlusOutlined/>} tooltip={<div className='text-[11px]'>Add Project</div>} />
+    <Modal  title="Add New Project" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+    <Form form={form} layout="vertical" name="userForm">
+        <Form.Item
+          name="project name"
+          label="Project Name"
+          rules={[
+            {
+              required: true,
+            },
+          ]}
+        >
+          <Input />
+        </Form.Item>
+        
+      </Form>
+      </Modal>
     </section>
     : 
    <div>

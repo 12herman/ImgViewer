@@ -5,7 +5,7 @@ import ProjectCard from "./projectcard";
 import Profile from "./profile";
 import Settings from "./settings";
 import {UserOutlined,SettingOutlined,HomeOutlined} from "@ant-design/icons";
-import LeftMenu from "../components/leftmenu";
+
 
 const Home = () => {
 

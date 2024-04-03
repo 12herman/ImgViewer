@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { LeftOutlined,RightOutlined, LogoutOutlined } from '@ant-design/icons';
+import { LeftOutlined,RightOutlined } from '@ant-design/icons';
 
 
 export default function LeftMenu({LeftMenuData}) {
